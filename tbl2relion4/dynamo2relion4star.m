@@ -1,5 +1,5 @@
-%% preparin ptcls.star
-bear_path = 'path/to/tomobear/output';
+%% preparation of ptcls.star
+bear_path = 'path/to/tomobear/output'; 
 tbl = dread('path/to/particle/tbl//class1.tbl');
 vll_file = readlines('path/to/vll/tomo_list.vll');
 tomo_tbl_id_list = sort(unique(tbl(:,20),'stable')); 
