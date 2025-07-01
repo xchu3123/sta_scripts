@@ -1,7 +1,9 @@
-%
+% 
+% the script takes .tbl file from dynamo and corresponding .vll file
+% generate tomo.star and particle.star for relion ver4.0 
+
 % the script was originally made by Vasilii Mikirtumov (https://github.com/vamikirt)
-% modified by Xiaofeng Chu
-%
+% then modified by Xiaofeng Chu
 %%
 
 clear all;
@@ -96,7 +98,7 @@ parfor (i = 1:63, 12)
 end
 
 
-%% 
+%%
 
 for i = 1:63
     tomo_name = char(sprintf('tomo_%03d.TM',i));

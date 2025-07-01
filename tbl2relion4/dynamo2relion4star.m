@@ -1,3 +1,9 @@
+% 
+% the script takes .tbl file from dynamo and corresponding .vll file
+% generate tomo.star and particle.star for relion ver4.0 
+% the script was originally made by Vasilii Mikirtumov (https://github.com/vamikirt)
+% modified by Xiaofeng Chu
+%
 %% preparation of ptcls.star
 bear_path = 'path/to/tomobear/output'; 
 tbl = dread('path/to/particle/tbl//class1.tbl');
@@ -37,7 +43,7 @@ for j = 1:length(tomo_tbl_id_list)
         continue
         disp(sprintf('tomogram with index %d has no particle', tomo_id))
     end
-    vll_tomo_name = vll_file(j); 
+    vll_tomo_name = vll_file(tomo_tbl_id); 
     vll_tomo_name = regexp(vll_tomo_name, 'tomogram_\d\d\d', 'match');
     vll_tomo_name = vll_tomo_name(1);
     
@@ -71,7 +77,6 @@ for j = 1:length(tomo_tbl_id_list)
     vll_tomo_name = vll_file(j); 
     vll_tomo_name = regexp(vll_tomo_name, 'tomogram_\d\d\d', 'match');
     vll_tomo_name = vll_tomo_name(1);
-    tbl_tomo = tbl(find(tbl(:,20) == j),:);
     fprintf(fp_star, '%s\t%s\t%s\t%s\t%.1f\t%s\n',vll_tomo_name,...
         sprintf('./imod_folders/%s/%s.st',vll_tomo_name, vll_tomo_name),...
         sprintf('./imod_folders/%s/%s.defocus', vll_tomo_name, vll_tomo_name),...
